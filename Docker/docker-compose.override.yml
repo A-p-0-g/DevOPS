@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+    adminer:
+      container_name: adminer
+      image: adminer
+      ports:
+        - 8090:8080
+      networks:
+          - app-network

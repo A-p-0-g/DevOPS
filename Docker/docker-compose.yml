@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+    backend:
+        build: simple-api-student-main
+        container_name: backend
+        networks:
+          - app-network
+        depends_on:
+          - database
+
+    database:
+        build: database
+        container_name: database
+        networks:
+          - app-network
+        volumes:
+          - data:/var/lib/postgresql/data
+
+    httpd:
+        build: Frontend
+        ports:
+          - 80:80
+        networks:
+          - app-network
+        depends_on:
+          - backend
+
+networks:
+    app-network:
+volumes:
+    data:
