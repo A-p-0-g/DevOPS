@@ -18,3 +18,4 @@ jobs:
           distribution: 'adopt'  # Ajout de la distribution de Java
       - name: Build and test with Maven
         run: mvn clean install
+        working-directory: Docker/simple-api-student-main
