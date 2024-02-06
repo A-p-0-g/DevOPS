@@ -171,3 +171,52 @@ Avec Testcontainers, vous pouvez définir et gérer des conteneurs Docker direct
 
 En résumé, Testcontainers est un outil puissant pour simplifier la configuration et la suppression des environnements de test, en particulier lorsqu'il s'agit de dépendances telles que des bases de données ou d'autres services pouvant être conteneurisés. Il favorise la cohérence et la reproductibilité de vos tests d'intégration en veillant à ce que chaque test s'exécute dans un environnement propre et isolé.
 
+Question 2.2 :
+```yml
+name: CI devops 2023
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  pull_request:
+
+jobs:
+  test-backend: 
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2.5.0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'  # Ajout de la distribution de Java
+      - name: Build and test with Maven
+        run: mvn clean install
+        working-directory: Docker/simple-api-student-main
+```
+Explication :
+
+Ce fichier représente un workflow GitHub Actions nommé "CI devops 2023". Ce workflow est configuré pour être déclenché lorsqu'un push est effectué sur les branches main ou develop, ainsi que lorsqu'une pull request est ouverte.
+
+Voici une explication détaillée du fichier :
+
+1. **name**: Le nom du workflow GitHub Actions, qui est "CI devops 2023".
+
+2. **on**: Cette section spécifie les événements qui déclenchent le workflow. Dans ce cas, le workflow est déclenché à chaque push sur les branches main ou develop, ainsi que lors de l'ouverture d'une pull request.
+
+3. **jobs**: Cette section définit les tâches à exécuter dans le cadre du workflow. Dans ce cas, il y a une seule tâche appelée "test-backend".
+
+4. **test-backend**: Cette tâche est configurée pour s'exécuter sur une machine virtuelle Ubuntu 22.04 (`runs-on: ubuntu-22.04`). Elle contient une liste d'étapes à suivre.
+
+5. **steps**: Cette section contient une liste d'étapes à exécuter dans le cadre de la tâche "test-backend".
+
+6. **actions/checkout@v2.5.0**: La première étape utilise l'action "checkout" pour récupérer le code source du référentiel GitHub.
+
+7. **actions/setup-java@v3**: La deuxième étape utilise l'action "setup-java" pour configurer JDK 17. L'option `java-version: '17'` spécifie la version de Java à utiliser, et `distribution: 'adopt'` spécifie la distribution de Java.
+
+8. **run: mvn clean install**: La troisième étape exécute la commande `mvn clean install` pour nettoyer le projet Maven et construire l'application. Cette commande est exécutée dans le répertoire spécifié par `working-directory: Docker/simple-api-student-main`.
+
+9. **working-directory: Docker/simple-api-student-main**: Cette option spécifie le répertoire dans lequel la commande `mvn clean install` sera exécutée. Cela garantit que la commande est exécutée dans le répertoire contenant le fichier `pom.xml` du projet Maven.
+
+En résumé, ce workflow GitHub Actions configure une tâche qui nettoie et construit un projet Maven, en utilisant JDK 17, sur une machine virtuelle Ubuntu 22.04, déclenchée par des actions sur les branches main ou develop et les pull requests.
