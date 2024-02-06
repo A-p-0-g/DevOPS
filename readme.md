@@ -158,3 +158,16 @@ docker tag devops_httpd:latest ap0g/devops_httpd:1.0
 docker push ap0g/devops_database:1.0
 docker push ap0g/devops_backend:1.0
 docker push ap0g/devops_httpd:1.0
+
+-----------------------------------------
+
+TP part 02 - GitHub
+
+Question 2.1 :
+
+Testcontainers est une bibliothèque Java qui fournit des instances légères et temporaires de bases de données courantes, de navigateurs web Selenium, ou de tout autre service pouvant s'exécuter dans un conteneur Docker pendant l'exécution de vos tests. Elle vous permet de configurer et de gérer facilement des conteneurs Docker dans le cadre de vos tests d'intégration.
+
+Avec Testcontainers, vous pouvez définir et gérer des conteneurs Docker directement à partir de votre code Java, ce qui facilite le démarrage des instances de base de données, l'exécution de tests contre elles, et la suppression après coup, le tout dans le contexte de votre suite de tests.
+
+En résumé, Testcontainers est un outil puissant pour simplifier la configuration et la suppression des environnements de test, en particulier lorsqu'il s'agit de dépendances telles que des bases de données ou d'autres services pouvant être conteneurisés. Il favorise la cohérence et la reproductibilité de vos tests d'intégration en veillant à ce que chaque test s'exécute dans un environnement propre et isolé.
+
