@@ -2,7 +2,8 @@ version: '3.7'
 
 services:
     backend:
-        build: simple-api-student-main
+        #build: simple-api-student-main
+        image: ap0g/devops_backend
         container_name: backend
         networks:
           - app-network
