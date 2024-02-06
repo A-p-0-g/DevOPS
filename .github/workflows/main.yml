@@ -1,24 +1,20 @@
 name: CI devops 2023
 on:
-  # Pour commencer, vous souhaitez lancer ce travail sur les branches main et develop
   push:
     branches: 
       - main
+      - develop
   pull_request:
 
 jobs:
   test-backend: 
     runs-on: ubuntu-22.04
     steps:
-      # Vérifiez votre code GitHub en utilisant actions/checkout@v2.5.0
       - uses: actions/checkout@v2.5.0
-
-      # Effectuez la même opération avec une autre action (actions/setup-java@v3) qui permet de configurer JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-
-      # Enfin, compilez votre application avec la dernière commande
+          distribution: 'adopt'  # Ajout de la distribution de Java
       - name: Build and test with Maven
         run: mvn clean install
