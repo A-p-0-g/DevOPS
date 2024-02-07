@@ -1,0 +1,10 @@
+---
+- name: Remove App Container
+  docker_container:
+    name: app_container
+    state: absent
+
+- name: Remove Proxy Container
+  docker_container:
+    name: proxy_container
+    state: absent

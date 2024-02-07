@@ -1,0 +1,11 @@
+- name: Deploy Application
+  hosts: all
+  become: yes
+  roles:
+    - docker
+    - create_network
+    - launch_database
+    - launch_app
+    - launch_proxy
+   # - restart_docker
+   # - delete_containers

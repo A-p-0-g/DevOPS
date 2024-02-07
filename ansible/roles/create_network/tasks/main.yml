@@ -1,0 +1,6 @@
+---
+# tasks file for ansible/roles/create_network/
+- name: Create Docker network
+  docker_network:
+    name: app-network
+    state: present

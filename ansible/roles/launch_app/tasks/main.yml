@@ -1,0 +1,8 @@
+---
+- name: Launch App Container
+  docker_container:
+    name: backend
+    image: ap0g/tp-devops-simple-api:latest
+    state: started
+    networks:
+      - name: app-network

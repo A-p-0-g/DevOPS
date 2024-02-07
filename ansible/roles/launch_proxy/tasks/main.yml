@@ -1,0 +1,10 @@
+---
+- name: Launch Proxy Container
+  docker_container:
+    name: proxy_container
+    image: ap0g/tp-devops-httpd:latest
+    state: started
+    ports:
+      - "80:80"
+    networks:
+      - name: app-network

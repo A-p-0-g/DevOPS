@@ -213,7 +213,7 @@ Voici une explication détaillée du fichier :
 
 6. **actions/checkout@v2.5.0**: La première étape utilise l'action "checkout" pour récupérer le code source du référentiel GitHub.
 
-7. **actions/setup-java@v3**: La deuxième étape utilise l'action "setup-java" pour configurer JDK 17. L'option `java-version: '17'` spécifie la version de Java à utiliser, et `distribution: 'adopt'` spécifie la distribution de Java.
+7. **actions/setup-java@v3**: La deuxième étape  utilise l'action "setup-java" pour configurer JDK 17. L'option `java-version: '17'` spécifie la version de Java à utiliser, et `distribution: 'adopt'` spécifie la distribution de Java.
 
 8. **run: mvn clean install**: La troisième étape exécute la commande `mvn clean install` pour nettoyer le projet Maven et construire l'application. Cette commande est exécutée dans le répertoire spécifié par `working-directory: Docker/simple-api-student-main`.
 
